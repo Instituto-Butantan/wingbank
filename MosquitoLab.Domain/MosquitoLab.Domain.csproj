@@ -1,0 +1,237 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{5F4F4618-2576-4245-A4F6-157EAB3D8A39}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MosquitoLab.Domain</RootNamespace>
+    <AssemblyName>MosquitoLab.Domain</AssemblyName>
+    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Dapper, Version=1.50.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Dapper.1.50.2\lib\net451\Dapper.dll</HintPath>
+    </Reference>
+    <Reference Include="Dapper.FluentMap, Version=1.5.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Dapper.FluentMap.1.5.3\lib\net451\Dapper.FluentMap.dll</HintPath>
+    </Reference>
+    <Reference Include="Dapper.FluentMap.Dommel, Version=1.4.5.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Dapper.FluentMap.Dommel.1.4.5\lib\net451\Dapper.FluentMap.Dommel.dll</HintPath>
+    </Reference>
+    <Reference Include="Dommel, Version=1.8.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Dommel.1.8.0\lib\net451\Dommel.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Serilog, Version=2.0.0.0, Culture=neutral, PublicKeyToken=24c2f752a8e58a10, processorArchitecture=MSIL">
+      <HintPath>..\packages\Serilog.2.5.0\lib\net45\Serilog.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Accounts\Entities\User.cs" />
+    <Compile Include="Accounts\Filters\AdancedSearchFilter.cs" />
+    <Compile Include="Accounts\Mappers\AccountMapping.cs" />
+    <Compile Include="Classifications\Dto\SimpleSelectDto.cs" />
+    <Compile Include="Classifications\Entities\AreaType.cs" />
+    <Compile Include="Classifications\Entities\ClassificationMethodology.cs" />
+    <Compile Include="Classifications\Entities\Colony.cs" />
+    <Compile Include="Classifications\Entities\Family.cs" />
+    <Compile Include="Classifications\Entities\Species.cs" />
+    <Compile Include="Classifications\Entities\Subfamily.cs" />
+    <Compile Include="Classifications\Entities\Subgenus.cs" />
+    <Compile Include="Classifications\Entities\Subspecies.cs" />
+    <Compile Include="Classifications\Entities\TaxonomicClassification.cs" />
+    <Compile Include="Classifications\Entities\Tribe.cs" />
+    <Compile Include="Classifications\Mappers\ClassificationMapping.cs" />
+    <Compile Include="Classifications\Repositories\IFamilyRepository.cs" />
+    <Compile Include="Classifications\Repositories\IGenusRepository.cs" />
+    <Compile Include="Classifications\Repositories\ISpeciesRepository.cs" />
+    <Compile Include="Classifications\Repositories\ISubfamilyRepository.cs" />
+    <Compile Include="Classifications\Repositories\ISubgenusRepository.cs" />
+    <Compile Include="Classifications\Repositories\ISubspeciesRepository.cs" />
+    <Compile Include="Classifications\Repositories\ITribeRepository.cs" />
+    <Compile Include="Common\Dto\AdvancedSearchDto.cs" />
+    <Compile Include="Common\Dto\DatabaseInfoDto.cs" />
+    <Compile Include="Common\Repositories\IDatabaseInfoRepository.cs" />
+    <Compile Include="Individuals\Commands\Input\DownloadWingCommand.cs" />
+    <Compile Include="Individuals\Commands\Output\DownloadWingCommandResult.cs" />
+    <Compile Include="Individuals\Entities\WingPublication.cs" />
+    <Compile Include="Individuals\Filters\WingFilter.cs" />
+    <Compile Include="Individuals\Filters\WingFilterSql.cs" />
+    <Compile Include="Individuals\Handlers\WingHandler.cs" />
+    <Compile Include="Individuals\Mappers\IndividualMapping.cs" />
+    <Compile Include="Individuals\Repositories\IWingImageRepository.cs" />
+    <Compile Include="PakcageGenarator\IWingbankPackageProcess.cs" />
+    <Compile Include="Samplings\Entities\Stage.cs" />
+    <Compile Include="Samplings\Entities\StageMethod.cs" />
+    <Compile Include="Publications\Entities\Publication.cs" />
+    <Compile Include="Publications\Entities\PublicationAuthor.cs" />
+    <Compile Include="Samplings\Entities\FieldSampling.cs" />
+    <Compile Include="Classifications\Entities\Genus.cs" />
+    <Compile Include="Classifications\Entities\Locality.cs" />
+    <Compile Include="Samplings\Entities\Method.cs" />
+    <Compile Include="Classifications\Entities\Origin.cs" />
+    <Compile Include="Samplings\Entities\PersonRColony.cs" />
+    <Compile Include="Samplings\Entities\PersonResponsible.cs" />
+    <Compile Include="Samplings\Entities\PersonResponsiblePhone.cs" />
+    <Compile Include="Samplings\Entities\PersonRFieldS.cs" />
+    <Compile Include="Common\Entities\CommonApprovalEntity.cs" />
+    <Compile Include="Common\Entities\CommonEntity.cs" />
+    <Compile Include="Common\Entities\CommonEntityWithKey.cs" />
+    <Compile Include="Common\Entities\CommonHistoricalEntity.cs" />
+    <Compile Include="Common\Entities\CommonRelationEntity.cs" />
+    <Compile Include="Common\Repositories\IRepository.cs" />
+    <Compile Include="Individuals\Dtos\WingResultDto.cs" />
+    <Compile Include="Individuals\Entities\Individual.cs" />
+    <Compile Include="Individuals\Entities\InternalControl.cs" />
+    <Compile Include="Individuals\Entities\Landmark.cs" />
+    <Compile Include="Individuals\Entities\LandmarkAnnotation.cs" />
+    <Compile Include="Individuals\Entities\WingImage.cs" />
+    <Compile Include="Individuals\Enums\Gender.cs" />
+    <Compile Include="Individuals\Enums\WingSide.cs" />
+    <Compile Include="Institutions\Entities\Donation.cs" />
+    <Compile Include="Institutions\Entities\Institution.cs" />
+    <Compile Include="Persistence\Context\Connections.cs" />
+    <Compile Include="Persistence\Context\IDbContext.cs" />
+    <Compile Include="Persistence\Context\IUnitOfWork.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Samplings\Entities\PersonRInstitution.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Accounts\AutoMappers\" />
+    <Folder Include="Accounts\Commands\" />
+    <Folder Include="Accounts\Enums\" />
+    <Folder Include="Accounts\Repositories\" />
+    <Folder Include="Accounts\Scopes\" />
+    <Folder Include="Accounts\Services\" />
+    <Folder Include="Classifications\AutoMappers\" />
+    <Folder Include="Classifications\Commands\" />
+    <Folder Include="Classifications\Enums\" />
+    <Folder Include="Classifications\Filters\" />
+    <Folder Include="Classifications\Scopes\" />
+    <Folder Include="Classifications\Services\" />
+    <Folder Include="Common\Commands\" />
+    <Folder Include="Common\Enums\" />
+    <Folder Include="Common\Filters\" />
+    <Folder Include="Common\Helpers\" />
+    <Folder Include="Common\Scopes\" />
+    <Folder Include="Common\Services\" />
+    <Folder Include="Individuals\AutoMappers\" />
+    <Folder Include="Individuals\Scopes\" />
+    <Folder Include="Individuals\Services\" />
+    <Folder Include="Institutions\AutoMappers\" />
+    <Folder Include="Institutions\Commands\" />
+    <Folder Include="Institutions\Enums\" />
+    <Folder Include="Institutions\Filters\" />
+    <Folder Include="Institutions\Repositories\" />
+    <Folder Include="Institutions\Scopes\" />
+    <Folder Include="Institutions\Services\" />
+    <Folder Include="Medias\AutoMappers\" />
+    <Folder Include="Medias\Commands\" />
+    <Folder Include="Medias\Entities\" />
+    <Folder Include="Medias\Enums\" />
+    <Folder Include="Medias\Filters\" />
+    <Folder Include="Medias\Repositories\" />
+    <Folder Include="Medias\Scopes\" />
+    <Folder Include="Medias\Services\" />
+    <Folder Include="Publications\AutoMappers\" />
+    <Folder Include="Publications\Commands\" />
+    <Folder Include="Publications\Enums\" />
+    <Folder Include="Publications\Filters\" />
+    <Folder Include="Publications\Repositories\" />
+    <Folder Include="Publications\Scopes\" />
+    <Folder Include="Publications\Services\" />
+    <Folder Include="Samplings\AutoMappers\" />
+    <Folder Include="Samplings\Commands\" />
+    <Folder Include="Samplings\Enums\" />
+    <Folder Include="Samplings\Filters\" />
+    <Folder Include="Samplings\Repositories\" />
+    <Folder Include="Samplings\Scopes\" />
+    <Folder Include="Samplings\Services\" />
+    <Folder Include="Storages\AutoMappers\" />
+    <Folder Include="Storages\Commands\" />
+    <Folder Include="Storages\Entities\" />
+    <Folder Include="Storages\Enums\" />
+    <Folder Include="Storages\Filters\" />
+    <Folder Include="Storages\Repositories\" />
+    <Folder Include="Storages\Scopes\" />
+    <Folder Include="Storages\Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MosquitoLab.Shared\MosquitoLab.Shared.csproj">
+      <Project>{d5b0e378-2a70-40fb-a27a-ae9f5a4d081a}</Project>
+      <Name>MosquitoLab.Shared</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

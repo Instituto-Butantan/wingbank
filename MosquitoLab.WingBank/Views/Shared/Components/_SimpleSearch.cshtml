@@ -1,0 +1,8 @@
+<form action="@Url.Action("Index", "Result")" method="get">
+    <div class="input-group input-group-lg">
+        <input type="text" name="text" class="form-control input-lg" placeholder="Search for...">
+        <span class="input-group-btn">
+            <button class="btn btn-default" onclick="location.href = '@Url.Action("Index", "Result")'" type="submit">Go!</button>
+        </span>
+    </div>
+</form>

@@ -1,0 +1,351 @@
+﻿body {
+  padding-top: 90px !important;
+  padding-bottom: 20px !important;
+  background: #f4f4f4 !important;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+  padding-top: 20px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+  white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+  max-width: 480px;
+  font-weight: lighter !important;
+}
+
+a {
+  color: #0085b2;
+}
+
+.search-center {
+  height: 60%;
+  width: 80%;
+  left: 10%;
+  top: 20%;
+  position: absolute;
+}
+
+.search-center a {
+  text-decoration: underline !important;
+  margin-top: 25px;
+  font-size: 16px;
+}
+
+.search-box {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 481px;
+}
+
+.wingbank-logo {
+  height: auto;
+}
+
+.wingbank-logo-full {
+  margin-bottom: 25px;
+  width: 100%;
+}
+
+.wingbank-logo-min {
+  height: 70px;
+  will-change: auto;
+  margin-top: 10px;
+}
+
+.input-group-lg,
+input {
+  font-weight: lighter !important;
+}
+
+.no-padding {
+  padding: 5px 0px;
+}
+
+.padding-3 {
+  padding: 5px 3px;
+}
+
+.panel-h-300 {
+  min-height: 300px;
+}
+
+.panel-h-250 {
+  min-height: 250px;
+}
+
+.panel-h-190 {
+  min-height: 190px;
+}
+
+.panel-h-290 {
+  min-height: 290px;
+}
+
+.page-action {
+  padding: 20px 0px !important;
+  width: 100% !important;
+  display: inline-block !important;
+}
+
+@media (max-width: 767px) {
+  .teste-resp {
+    overflow-x: scroll;
+    background: #fff;
+  }
+
+  .wingbank-logo-min {
+    height: 40px;
+    will-change: auto;
+    margin-top: 8px;
+    margin-left: 8px;
+  }
+
+  fieldset {
+    padding: 0 !important;
+    margin: 0;
+    border: 0;
+  }
+}
+
+@media (min-width: 768px) {
+  .nav-search {
+  }
+
+  .nav-search .input-group {
+    margin-top: 20px;
+  }
+
+  .nav-search .nav-link {
+    margin-top: 46px;
+  }
+
+  .nav-search .nav-link a {
+    text-decoration: underline;
+  }
+
+  fieldset {
+    display: block !important;
+    border: 1px #ababab groove !important;
+    padding-right: 0.75em !important;
+    padding-left: 0.75em !important;
+    padding-bottom: 0.625em !important;
+    padding-top: 0.35em !important;
+    margin-right: 2px !important;
+    margin-left: 2px !important;
+  }
+}
+
+legend {
+  display: block;
+  width: auto;
+  max-width: 280px;
+  padding: 0;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-size: 14px !important;
+  line-height: inherit;
+  color: #333333;
+  border: 0;
+}
+
+.t-grouping-header {
+  background: #f0f0f0 !important;
+}
+
+.t-grouping-header,
+.t-grouping-dropclue {
+  height: auto !important;
+}
+
+.t-grouping-header,
+.t-grid-toolbar {
+  padding: 0.35em !important;
+}
+
+.t-grid-header .t-header {
+  padding: 0.8em 0.6em !important;
+  border-width: 0 0 1px 1px !important;
+  border-left-width: 1px !important;
+  border-style: solid !important;
+  font-weight: normal !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+}
+
+.t-header,
+.t-grid-header {
+  background: #f4f4f4 !important;
+  border-color: #e5e5e5 !important;
+  color: #767676 !important;
+}
+
+.t-dropdown .t-input,
+.t-header.t-link,
+.t-group .t-header.t-link,
+.t-header .t-link,
+.t-grid-header th .t-link,
+.t-state-active .t-header.t-link {
+  color: #767676 !important;
+}
+
+.t-grid-pager {
+  padding: 0.5em 0.6em !important;
+  line-height: 1.8em !important;
+  overflow: auto !important;
+  border-width: 1px 0 0 !important;
+  border-style: solid !important;
+}
+
+.t-state-active {
+  background-color: #3276b1 !important;
+  border-color: #3166b1 !important;
+  color: #fff !important;
+  border-radius: 2px !important;
+}
+
+.t-numeric .t-state-active,
+.t-numeric .t-state-hover {
+  padding: 4px 8px !important;
+  line-height: 20px !important;
+}
+
+.t-numeric .t-link,
+.t-numeric .t-state-active,
+.t-pager .t-state-hover {
+  padding: 4px 8px !important;
+}
+
+.t-pager .t-link {
+  text-decoration: none;
+  padding: 4px 8px !important;
+  margin-top: 0.1em;
+  border-width: 0;
+  line-height: 20px !important;
+  border: 1px solid transparent !important;
+}
+
+.t-pager .t-numeric,
+.t-pager .t-page-i-of-n {
+  margin: 0.2em 7px !important;
+  vertical-align: top !important;
+}
+
+.t-grid .t-status {
+  float: left !important;
+  margin: 0.2em 0.6em -0.2em -0.6em !important;
+  padding: 0.2em 0.6em !important;
+  height: 1.85em !important;
+  border-right-width: 1px !important;
+  border-right-style: solid !important;
+}
+
+.t-grid td {
+  font-size: 13px !important;
+}
+
+.footer {
+  width: 100% !important;
+  display: inline-block !important;
+}
+
+.footer p {
+  color: #939598 !important;
+}
+
+label {
+  display: inline-block !important;
+  margin-bottom: 5px !important;
+  font-weight: normal !important;
+  color: #757584 !important;
+}
+
+.form-control {
+  display: block;
+  width: 100%;
+  height: 34px;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.428571429;
+  color: #555555;
+  vertical-align: middle;
+  background-color: #ffffff;
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  -webkit-transition: border-color ease-in-out 0.15s,
+    box-shadow ease-in-out 0.15s;
+  transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+}
+
+.input-group .form-control:first-child,
+.input-group-addon:first-child,
+.input-group-btn:first-child > .btn,
+.input-group-btn:first-child > .dropdown-toggle,
+.input-group-btn:last-child > .btn:not(:last-child):not(.dropdown-toggle) {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  font-size: 14px !important;
+}
+
+.link {
+  cursor: pointer;
+}
+
+.wingbank-text {
+  color: #939598;
+}
+
+.justified-text {
+  text-align: justify !important;
+  text-justify: inter-word !important;
+}
+
+.translator-box {
+  display: block;
+  width: 100%;
+}
+
+.translator-box .flag-box {
+  float: right;
+  max-width: 280px;
+  list-style: none;
+}
+
+.translate-content {
+}
+
+.translate-content .content {
+  display: none;
+}
+
+.translate-content .active {
+  display: block !important;
+}
+
+.content.content ol li {
+  margin-left: -20px;
+  padding-left: 0px !important;
+}
+
+.teste-resp {
+  /* display: inline-block; */
+  /* position: relative; */
+  overflow: auto;
+  /* width: 100%; */
+  /* max-width: 300px; */
+}
