@@ -1,0 +1,117 @@
+﻿@using MosquitoLab.Domain.Individuals.Dtos
+@using MosquitoLab.Domain.Individuals.Enums
+@using Telerik.Web.Mvc.UI
+@{
+    var wings = (List<WingResultDto>)Model;
+    ViewBag.Title = "Result";
+}
+@section stylesheet {
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/2013.2.611/telerik.common.min.css")" />
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/2013.2.611/telerik.metro.min.css")" />
+}
+@section GridAction
+{
+    <div class="row">
+        <div class="col-lg-12">
+            <div calss="row">
+                <div class="pull-right">
+                    @* <button data-toggle="modal" href="#myModal"  id="download-selcteds" type="button" class="btn btn-primary">Download selected files</button> *@
+                   <a  id ="selected-wings-dialog" style="cursor: pointer" data-toggle="modal" href="#selectedFilesModal" >  (<span class="selected-files-counter">0</span>) Selected files </a>   
+                   | 
+                   <button data-toggle="modal" href="#myModal"  id="download-selcteds" type="button" class="btn btn-primary">   <em class="glyphicon glyphicon-download-alt"></em>  Download</button>
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+
+}
+<p dabase-info></p>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="teste-resp">
+        @{
+            Html.Telerik().Grid(wings)
+                .Name("Grid")
+                .Columns(columns =>
+                {
+                columns.Bound(o => o.Id).Title("").Template(@<center><input class="item-selected wing-selector" type="checkbox" item-id="@item.Id"></center>).Width(0);
+                    columns.Bound(o => o.Title).Width(500).Template(@<div style="min-width: 150px"><i>@(item.Title)</i></div>);
+                    columns.Bound(o => o.WingSide).Width(0).Title("Wing Side").Template(@<div style="max-width: 20px"><text>@(item.WingSide == WingSide.L ? "Left" : "Right")</text></div>);
+    columns.Bound(o => o.Gender).EditorTemplateName("Wing Side").Template(@<text>@(item.Gender == Gender.F ? "Female" : "Male")</text>);
+    columns.Bound(o => o.SamplingDate).Template(@<div> @string.Format("{0:yyyy/MM/dd HH:mm}", item.SamplingDate) </div>);
+    columns.Bound(o => o.Country);
+    columns.Bound(o => o.State).Title("State / Province");
+    columns.Bound(o => o.City);
+    columns.Bound(o => o.Genera).Title("Genus").Template(@<i>@(item.Genera)</i>);
+    columns.Bound(o => o.Specie).Title("Specific Epithet").Template(@<i>@( item.Specie)</i>);
+    columns.Bound(o => o.Id).Title("Download").Template(@<center><a data-toggle="modal" href="#myModal" class="link download-file wing-@(item.Id)" w-id="@(item.Id)">  <em class="glyphicon glyphicon-download-alt"></em>  Download </a></center>).Width(1);
+    })
+    .Groupable()
+    .Pageable(pager => pager.PageSize(20))
+    .Render();
+    }
+</div>
+    </div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close close-dialog" data-dismiss="modal"  aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Accept the terms of use</h4>
+            </div>
+            <div class="modal-body">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class=" close-dialog btn btn-default" data-dismiss="modal">Decline</button>
+                <button type="button" id="confirm-dialog" class="btn btn-primary"  data-dismiss="modal">Accept</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="selectedFilesModal" tabindex="-2" role="dialog" aria-labelledby="selectedFilesModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close close-dialog" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Selecteds files</h4>
+            </div>
+            <div class="modal-body">
+                <p style="text-align: right">
+                    <a style="cursor:pointer" data-toggle="modal" data-dismiss="modal" href="#myModal"  id="download-selcteds"  > Download All </a> | 
+                    <a style="cursor:pointer"  class="clear-selected-files" data-dismiss="modal"> Remove All </a>
+                </p>
+                <ul class="list-group selecteds-wings-list">
+                    <li class="list-group-item"> Empty </li>
+                </ul>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="close-dialog btn btn-primary"  data-toggle="modal" data-dismiss="modal" href="#myModal"  id="download-selcteds" >  <em class="glyphicon glyphicon-download-alt"></em> Download </button>
+                <button type="button" class="close-dialog btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+
+@section scripts {
+        <script src="~/Content/app/result/result.js"></script>
+    @Html.Telerik().ScriptRegistrar().Scripts(scripts =>
+    scripts.AddGroup("CommonScript", group =>
+        group.Add("~/Scripts/2013.2.611/telerik.grid.min.js")
+            .Add("~/Scripts/2013.2.611/telerik.grid.grouping.min.js")
+        ));
+
+    <script src="~/Content/app/search/database-info.js"></script>
+}

@@ -1,0 +1,215 @@
+﻿@using MosquitoLab.Domain.Common.Dto
+@{
+    ViewBag.Title = "Advanced Search";
+    ViewBag.HiddenAdvancedSearch = true;
+
+    var model = (AdvancedSearchDto)Model;
+
+}
+<form method="GET" action="@Url.Action("Index", "Result")">
+
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">Sampling</div>
+                <div class="panel-body panel-h-290">
+
+                    <div class="padding-3  col-lg-3">
+                        <div class="form-group  form-group-sm">
+                            <label for="">Specific locality</label>
+                            <input name="specificLocality" type="text" class="form-control input-sm" placeholder="Specific locality">
+                        </div>
+                    </div>
+
+                    <div class="padding-3  col-lg-5">
+                        <div class="form-group  form-group-sm">
+                            <label for="">Locality</label>
+                            <input id="locality" onFocus="geolocate()" name="locality" type="text" class="form-control input-sm" placeholder="Locality">
+                        </div>
+                    </div>
+
+                    <div class="padding-3  col-lg-4">
+                        <div class="form-group  form-group-sm">
+                            <label for="">City</label>
+                            <input id="administrative_area_level_2" name="city" type="text" class="form-control input-sm" placeholder="City">
+                        </div>
+                    </div>
+
+                    <div class="padding-3  col-lg-4">
+                        <div class="form-group  form-group-sm">
+                            <label for="">State / Province</label>
+                            <input name="state" type="text" class="form-control input-sm" id="administrative_area_level_1" placeholder="State / Province">
+                        </div>
+                    </div>
+
+                    <div class="padding-3  col-lg-4">
+                        <div class="form-group  form-group-sm">
+                            <label for="">Country</label>
+                            <input name="country" type="text" class="form-control input-sm" id="country" placeholder="Country">
+                        </div>
+                    </div>
+
+
+                    <div class="padding-3  col-lg-4">
+                        <div class="form-group  form-group-sm">
+                            <label for="">Date</label>
+                            <input name="Date" type="text" class="form-control input-sm" data-mask="0000/00/00" placeholder="ex: yyyy/mm/dd">
+                        </div>
+                    </div>
+
+                    <div class="padding-3  col-lg-4">
+                        <div class="form-group  form-group-sm">
+                            <label for="">Latitude</label>
+                            <input name="latitude" type="text" class="form-control input-sm" id="latitude" placeholder="ex: 44.555,00">
+                        </div>
+                    </div>
+
+
+                    <div class="padding-3  col-lg-4">
+                        <div class="form-group  form-group-sm">
+                            <label for="">Longitude</label>
+                            <input name="longitude" type="text" class="form-control input-sm" placeholder="ex: 44.555,00">
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">Individual</div>
+                <div class="panel-body panel-h-290">
+                    <div class="padding-3  col-lg-5">
+                        <div class="form-group  form-group-sm">
+                            <label for="">Gender</label>
+                            <select name=gender "" class="form-control input-sm">
+                                <option value="" selected>Select gender</option>
+                                <option value="M">Male</option>
+                                <option value="F">Female</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="padding-3  col-lg-5">
+                        <div class="form-group  form-group-sm">
+                            <label for="">Wing side</label>
+                            <select name="wingSide" class="form-control input-sm">
+                                <option value="" selected>Select side</option>
+                                <option value="L">Left</option>
+                                <option value="R">Right</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">Taxonomic Identification</div>
+                <div class="panel-body ">
+
+                            <div class="padding-3  col-lg-4">
+                                <div class="form-group  form-group-sm">
+                                    <label for="">Family</label>
+                                    <select id="select-family" name="family" class="form-control input-sm">
+                                        <option value="" selected>Select family</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="padding-3  col-lg-4">
+                                <div class="form-group  form-group-sm">
+                                    <label for="">Subfamily</label>
+                                    <select id="select-subfamily" name="subfamily" class="form-control input-sm">
+                                        <option value="" selected>Select subfamily</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="padding-3  col-lg-4">
+                                <div class="form-group  form-group-sm">
+                                    <label for="">Tribe</label>
+                                    <select id="select-tribe" name="tribe" class="form-control input-sm">
+                                        <option value="" selected>Select tribe</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="padding-3  col-lg-4">
+                                <div class="form-group  form-group-sm">
+                                    <label for="">Genus</label>
+                                    <select id="select-genus" name="genus" class="form-control input-sm">
+                                        <option value="" selected>Select genus</option>
+                                    </select>
+                                </div>
+                            </div>
+
+
+                    <!-- <div class="padding-3  col-lg-3">
+                        <div class="form-group  form-group-sm">
+                            <label for="">Subgenus</label>
+                            <select id="select-subgenus" name="subgenus" class="form-control input-sm">
+                                <option value="" selected>Select subgenus</option>
+                            </select>
+                        </div>
+                    </div> -->
+                    <div class="padding-3  col-lg-4">
+                        <div class="form-group  form-group-sm">
+                            <label for="">Specific epithet</label>
+                            <select id="select-specie" name="specie" class="form-control input-sm">
+                                <option value="" selected>Select specific epithet</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">Institution</div>
+                <div class="panel-body ">
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="padding-3  col-lg-4">
+                                <div class="form-group  form-group-sm">
+                                    <label for="">Institution name</label>
+                                    <input name="institutionName" type="text" class="form-control input-sm" placeholder="Institution name">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr />
+                    <div class="padding-3  col-lg-4">
+                        <div class="form-group  form-group-sm">
+                            <label for="">MosquitoLab Code</label>
+                            <input name="mosquitoLabCode" type="text" class="form-control input-sm" placeholder="MosquitoLab code">
+                        </div>
+                    </div>
+                    <div class="padding-3  col-lg-5">
+                        <div class="form-group  form-group-sm">
+                            <label for="">LECZ Code (Laboratório Especial de Coleções Zoológicas)</label>
+                            <input name="lecz" type="text" class="form-control input-sm" placeholder="LECZ Code (Laboratório Especial de Coleções Zoológicas)">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    @section PageAction{
+        <button type="submit" class="btn btn-primary btn-lg active col-lg-2">Go!</button>
+    </form>
+    }
+    @section scripts {
+
+
+
+        <script src="~/Content/app/advanced-search/advanced-search.js"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=@ViewBag.GoogleMapsKey&libraries=places&callback=initAutocomplete"></script>
+
+    }
