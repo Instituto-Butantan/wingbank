@@ -1,0 +1,97 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="cache-control" content="no-cache">
+    <meta http-equiv="expires" content="Mon, 22 Jul 2002 11:12:01 GMT">	
+    <link rel="shortcut icon" type="image/x-icon" href="~/favicon.ico" />
+    <title>@ViewBag.Title - WingBank</title>
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/vendors/css")
+    @RenderSection("stylesheet", required: false)
+</head>
+<body>
+    <div class="navbar navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="glyphicon glyphicon-align-justify"></span>
+                </button>
+                <!--@Html.ActionLink("<img>", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })-->
+                <a href="@Url.Action("Index", "Home")">
+                    <img class="wingbank-logo wingbank-logo-min" src="@Url.Content("~/Content/Images/Logo.png")" , alt="Home" />
+                </a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <div class="col-lg-6 col-sm-6 col-md-6   nav-search">
+                    <div class="col-lg-8 col-sm-7 col-md-7 ">
+                        @Html.Partial("~/Views/Shared/Components/_SimpleSearch.cshtml")
+                    </div>
+                    @{ if (ViewBag.HiddenAdvancedSearch == false || ViewBag.HiddenAdvancedSearch == null)
+                        {
+                            <div class="col-lg-4 col-sm-5 col-md-5">
+                                <div class="nav-link">
+                                    @Html.ActionLink("Advanced Search", "Index", "Search")
+                                </div>
+                            </div>
+                        }
+                    }
+                </div>
+                <div class="col-lg-4 pull-right">
+
+                    <ul class="nav navbar-nav navbar-right">
+                        @*<li>@Html.ActionLink("Home", "", "Home")</li>*@
+                        <!-- <li class="selected-files-modal" style="cursor: pointer;" title="Selected files"><a> <i class="glyphicon glyphicon-download-alt"> </i> (<span class="selected-files-counter">0</span>)  </a></li> -->
+                        <li>@Html.ActionLink("Instructions", "Index", "Instructions")</li>
+                        <li>@Html.ActionLink("Terms of use", "Index", "Terms")</li>
+                        @*<li>@Html.ActionLink("Contact", "Contact", "Home")</li>*@ 
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        <div class="col-lg-12">
+            @RenderSection("GridAction", required: false)
+        </div>
+        <fieldset>
+            <legend> / @ViewBag.Title </legend>
+            @RenderBody()
+        </fieldset>
+        <div class="col-lg-12 page-action">
+            @RenderSection("PageAction", required: false)
+        </div>
+        <footer class="footer">
+
+            <center>
+                <p>&copy; @DateTime.Now.Year - MosquitoLab - WingBank </p>
+                <p>
+                    Found an error? Contact us. <a href="mail:wingbank@butantan.gov.br">wingbank@butantan.gov.br</a>
+                </p>
+            </center>
+
+        </footer>
+    </div>
+
+    @{
+        var h = HttpContext.Current.Request.ApplicationPath;
+    }
+
+    <script>
+    var _env = { host: "@(h == "/" ? h : h + "/" )" };
+    </script>
+
+    <script src="~/Content/app/environment/environment.js"></script>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/Content/vendors/js")
+
+    <script src="~/Content/app/app.js"></script>
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>
